@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <template id="find-company-template">
+        <section class="container">
+            <p><strong>Компания или ИП</strong></p>
+            <slot name="company"></slot>
+        </section>
+
+        <section class="result">
+            <p id="type"></p>
+            <div class="row">
+                <label>Краткое наименование</label>
+                <slot name="name_short">
+            </div>
+            <div class="row">
+                <label>Полное наименование</label>
+                <slot name="name_full">
+            </div>
+            <div class="row">
+                <label>ИНН / КПП</label>
+                <slot name="inn_kpp">
+            </div>
+            <div class="row">
+                <label>Адрес</label>
+                <slot name="address">
+            </div>
+        </section>
+        <slot name="type_company"></slot>
+    </template>
+
+    <find-company>
+        <input slot="company" id="party" name="party" type="text" placeholder="Введите название, ИНН, ОГРН или адрес организации"/>
+        <p slot="type_company" id="type_company"></p>
+        <input slot="name_short" id="name_short" readOnly >
+        <input slot="name_full" id="name_full" readOnly >
+        <input slot="inn_kpp" id="inn_kpp" readOnly >
+        <input slot="address" id="address" readOnly >
+    </find-company>
+</body>
+
+</html>
